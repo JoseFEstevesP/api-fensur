@@ -22,6 +22,21 @@ export const nameDTOSchemas = Type.String({
     maxLength: 'El nombre debe de tener un máximo de 20 caracteres de longitud',
   },
 });
+export const dateDTOSchemas = Type.Strict({
+  errorMessage: {
+    type: 'El foramto debe de ser tipo fecha',
+  },
+});
+export const descriptionDTOSchemas = Type.String({
+  minLength: 2,
+  maxLength: 50,
+  errorMessage: {
+    minLength:
+      'La descripción debe de tener un mínimo de 2 caracteres de longitud',
+    maxLength:
+      'La descripción debe de tener un máximo de 20 caracteres de longitud',
+  },
+});
 export const surnameDTOSchemas = Type.String({
   minLength: 4,
   maxLength: 50,
