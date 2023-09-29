@@ -5,4 +5,5 @@ export const permissions = {
   update: 'UPDATE',
   delete: 'DELETE',
   teacher: 'TEACHER',
+  student: 'STUDENT',
 };
