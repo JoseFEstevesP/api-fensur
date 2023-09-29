@@ -1,12 +1,12 @@
+import { regExpPassword } from '#Constants/reg-exp.js';
+import { ciDTOSchemas, passwordDTOSchemas } from '#Dto/dto-types.js';
 import { Type } from '@sinclair/typebox';
 import Ajv from 'ajv';
-import addFormats from 'ajv-formats';
 import addErrors from 'ajv-errors';
-import { emailDTOSchemas, passwordDTOSchemas } from '#Dto/dto-types.js';
-import { regExpPassword } from '#Constants/reg-exp.js';
+import addFormats from 'ajv-formats';
 const loginDTOSchema = Type.Object(
   {
-    email: emailDTOSchemas,
+    ci: ciDTOSchemas,
     password: passwordDTOSchemas,
   },
   {

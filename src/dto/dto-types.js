@@ -6,6 +6,14 @@ export const idDTOSchemas = Type.String({
     format: 'El formato de uid no valido, debe de ser uuid4',
   },
 });
+export const ciDTOSchemas = Type.String({
+  minLength: 6,
+  maxLength: 9,
+  errorMessage: {
+    minLength: 'Ingrese una CI valida, mínimo 7 caracteres',
+    maxLength: 'Ingrese una CI valida, máximo 8 caracteres',
+  },
+});
 export const nameDTOSchemas = Type.String({
   minLength: 2,
   maxLength: 20,

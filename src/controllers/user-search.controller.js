@@ -8,6 +8,7 @@ const userSearchController = async (req, res) => {
     where: {
       [Op.or]: [
         { name: { [Op.iLike]: `%${search}%` } },
+        { ci: { [Op.iLike]: `%${search}%` } },
         { surname: { [Op.iLike]: `%${search}%` } },
         { email: { [Op.iLike]: `%${search}%` } },
       ],

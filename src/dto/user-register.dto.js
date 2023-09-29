@@ -1,5 +1,6 @@
 import { regExpPassword } from '#Constants/reg-exp.js';
 import {
+  ciDTOSchemas,
   emailDTOSchemas,
   idDTOSchemas,
   nameDTOSchemas,
@@ -13,6 +14,7 @@ import addFormats from 'ajv-formats';
 const registerDTOSchema = Type.Object(
   {
     uid: idDTOSchemas,
+    ci: ciDTOSchemas,
     name: nameDTOSchemas,
     surname: surnameDTOSchemas,
     email: emailDTOSchemas,

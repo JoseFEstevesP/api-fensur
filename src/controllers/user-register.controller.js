@@ -2,7 +2,7 @@ import { SALT } from '#Constants/salt.js';
 import { User } from '#Schemas/user.schema.js';
 import { hash } from 'bcrypt';
 const userRegisterController = async (req, res) => {
-  const { uid, name, surname, email, password, uidRol } = req.body;
+  const { uid, ci, name, surname, email, password, uidRol } = req.body;
   const existingUserById = await User.findByPk(uid);
   if (existingUserById)
     return res
@@ -16,6 +16,7 @@ const userRegisterController = async (req, res) => {
   const hashedPassword = await hash(password, SALT);
   const user = await User.create({
     uid,
+    ci,
     name,
     surname,
     email,

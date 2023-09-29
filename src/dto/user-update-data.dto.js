@@ -1,11 +1,16 @@
 import { Type } from '@sinclair/typebox';
 import Ajv from 'ajv';
 import addErrors from 'ajv-errors';
-import { nameDTOSchemas, surnameDTOSchemas } from '#Dto/dto-types.js';
+import {
+  ciDTOSchemas,
+  nameDTOSchemas,
+  surnameDTOSchemas,
+} from '#Dto/dto-types.js';
 import { regExpPassword } from '#Constants/reg-exp.js';
 const updateDataDTOSchema = Type.Object(
   {
     name: nameDTOSchemas,
+    ci: ciDTOSchemas,
     surname: surnameDTOSchemas,
   },
   {

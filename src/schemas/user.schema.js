@@ -6,6 +6,14 @@ export const User = sequelize.define('user', {
     type: DataTypes.STRING,
     primaryKey: true,
   },
+  ci: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      len: [6, 9],
+    },
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
