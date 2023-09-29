@@ -9,6 +9,7 @@ import deleteDTO from '#Dto/rol-delete.dto.js';
 import createPermissions from '#Middleware/rol-create.middleware.js';
 import deletePermissions from '#Middleware/rol-delete.middleware.js';
 import readPermissions from '#Middleware/rol-read.middleware.js';
+import teacherPermissions from '#Middleware/rol-teacher.middleware.js';
 import updatePermissions from '#Middleware/rol-update.middleware.js';
 import userJWTDTO from '#Middleware/user-jwt.middleware.js';
 import { Router } from 'express';
@@ -19,6 +20,7 @@ courseRoutes.post(
   '/register',
   userJWTDTO,
   createPermissions,
+  teacherPermissions,
   courseRegisterDTO,
   courseRegisterController
 );
@@ -39,6 +41,7 @@ courseRoutes.patch(
   '/update',
   userJWTDTO,
   updatePermissions,
+  teacherPermissions,
   courseRegisterDTO,
   courseUpdateController
 );
@@ -46,6 +49,7 @@ courseRoutes.delete(
   '/delete',
   userJWTDTO,
   deletePermissions,
+  teacherPermissions,
   deleteDTO,
   courseDeleteController
 );
