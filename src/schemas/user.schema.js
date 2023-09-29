@@ -1,6 +1,7 @@
 import { sequelize } from '#Config/db.js';
 import { DataTypes } from 'sequelize';
 import { Course } from './course.schema.js';
+import { Teacher } from './teacher.schema.js';
 
 export const User = sequelize.define('user', {
   uid: {
@@ -45,5 +46,13 @@ User.hasMany(Course, {
 });
 Course.belongsTo(User, {
   foreignKey: 'uidCreator',
+  targetId: 'uid',
+});
+User.hasMany(Teacher, {
+  foreignKey: 'uidTeacher',
+  sourceKey: 'uid',
+});
+Teacher.belongsTo(User, {
+  foreignKey: 'uidTeacher',
   targetId: 'uid',
 });
