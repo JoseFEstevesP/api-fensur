@@ -1,4 +1,5 @@
-import courseRoutes from '#Routes/course.routes.js';import teacherRoutes from '#Routes/teacher.routes.js';
+import courseRoutes from '#Routes/course.routes.js';
+import teacherRoutes from '#Routes/teacher.routes.js';
 import rolRoutes from '#Routes/rol.routes.js';
 import userRoutes from '#Routes/user.routes.js';
 import express from 'express';
