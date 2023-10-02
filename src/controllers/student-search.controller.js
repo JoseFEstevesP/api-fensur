@@ -14,7 +14,7 @@ const studentSearchController = async (req, res) => {
   if (!rows.length)
     return res
       .status(404)
-      .send({ errors: ['No se a encontrado ningún estudiante'] });
+      .send({ errors: [{ uid: 'No se a encontrado ningún estudiante' }] });
   const pages = Math.ceil(count / limit);
   const totalPage = page > pages ? pages : page;
   const nextPage = Number(totalPage) + 1;

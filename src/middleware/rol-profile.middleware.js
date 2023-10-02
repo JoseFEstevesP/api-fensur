@@ -8,7 +8,7 @@ const profilePermissions = async (req, res, next) => {
     per: permissions.profile,
   });
   if (!validate)
-    return res.status(401).send({ errors: ['Usuario no autorizado'] });
+    return res.status(401).send({ errors: [{ uid: 'Usuario no autorizado' }] });
   next();
 };
 

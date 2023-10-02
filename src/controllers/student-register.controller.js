@@ -16,17 +16,19 @@ const studentRegisterController = async (req, res) => {
   if (!validateTeacher)
     return res
       .status(409)
-      .send({ errors: ['EL usuario no posee el rol de estudiante'] });
+      .send({ errors: [{ uid: 'EL usuario no posee el rol de estudiante' }] });
   if (existingStudentById)
-    return res
-      .status(409)
-      .send({ errors: ['Ya existe un profesor con ese id registrado'] });
+    return res.status(409).send({
+      errors: [{ uid: 'Ya existe un estudiante con ese id registrado' }],
+    });
   if (!existingUser)
     return res
       .status(409)
-      .send({ errors: ['No existe un usuario con ese id'] });
+      .send({ errors: [{ uid: 'No existe un usuario con ese id' }] });
   if (!existingCourse)
-    return res.status(409).send({ errors: ['No existe un curso con ese id'] });
+    return res
+      .status(409)
+      .send({ errors: [{ uid: 'No existe un curso con ese id' }] });
   const student = await Student.create({
     uid,
     uidStudent,

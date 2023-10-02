@@ -3,7 +3,9 @@ const studentDeleteController = async (req, res) => {
   const { uid } = req.body;
   const existingStudentById = await Student.findByPk(uid);
   if (!existingStudentById)
-    return res.status(401).send({ errors: ['Estudiante no encontrado'] });
+    return res
+      .status(401)
+      .send({ errors: [{ uid: 'Estudiante no encontrado' }] });
   await existingStudentById.destroy();
   return res.send({ msg: 'Estudiante eliminado' });
 };

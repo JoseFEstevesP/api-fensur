@@ -6,10 +6,14 @@ const userLoginController = async (req, res) => {
   const { ci, password } = req.body;
   const existingUserByCi = await User.findOne({ where: { ci } });
   if (!existingUserByCi)
-    return res.status(401).send({ errors: ['Credenciales incorrectas'] });
+    return res
+      .status(401)
+      .send({ errors: [{ uid: 'Credenciales incorrectas' }] });
   const checkPassword = await compare(password, existingUserByCi.password);
   if (!checkPassword)
-    return res.status(401).send({ errors: ['Credenciales incorrectas'] });
+    return res
+      .status(401)
+      .send({ errors: [{ uid: 'Credenciales incorrectas' }] });
   const jwtConstructor = new SignJWT({
     id: existingUserByCi.uid,
     uidRol: existingUserByCi.uidRol,

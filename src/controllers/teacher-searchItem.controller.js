@@ -6,7 +6,7 @@ const teacherSearchItemController = async (req, res) => {
   if (!teacher)
     return res
       .status(404)
-      .send({ errors: ['No se a encontrado ningún profesor'] });
+      .send({ errors: [{ uid: 'No se a encontrado ningún profesor' }] });
   return res.status(200).send(teacher);
 };
 

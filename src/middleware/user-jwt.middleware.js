@@ -3,9 +3,10 @@ import { jwtVerify } from 'jose';
 const userJWTDTO = async (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization)
-    return res.status(401).send({ errors: ['Usuario no autorizado'] });
+    return res.status(401).send({ errors: [{ uid: 'Usuario no autorizado' }] });
   const JWT = authorization.split(' ')[1];
-  if (!JWT) return res.status(401).send({ errors: ['Usuario no autorizado'] });
+  if (!JWT)
+    return res.status(401).send({ errors: [{ uid: 'Usuario no autorizado' }] });
   try {
     const { payload } = await jwtVerify(
       JWT,
@@ -15,7 +16,7 @@ const userJWTDTO = async (req, res, next) => {
     req.uidRol = payload.uidRol;
     next();
   } catch (error) {
-    return res.status(401).send({ errors: ['Usuario no autorizado'] });
+    return res.status(401).send({ errors: [{ uid: 'Usuario no autorizado' }] });
   }
 };
 

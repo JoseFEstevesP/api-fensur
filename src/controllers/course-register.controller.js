@@ -6,7 +6,7 @@ const courseRegisterController = async (req, res) => {
   if (existingCourseById)
     return res
       .status(409)
-      .send({ errors: ['Ya existe un rol con ese id registrado'] });
+      .send({ errors: [{ uid: 'Ya existe un rol con ese id registrado' }] });
 
   const course = await Course.create({
     uid,

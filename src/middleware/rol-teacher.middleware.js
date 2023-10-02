@@ -8,7 +8,7 @@ const teacherPermissions = async (req, res, next) => {
     per: permissions.teacher,
   });
   if (!validate)
-    return res.status(401).send({ errors: ['Usuario no autorizado'] });
+    return res.status(401).send({ errors: [{ uid: 'Usuario no autorizado' }] });
   next();
 };
 

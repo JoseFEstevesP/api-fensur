@@ -6,7 +6,7 @@ const courseSearchItemController = async (req, res) => {
   if (!course)
     return res
       .status(404)
-      .send({ errors: ['No se a encontrado ningún curso'] });
+      .send({ errors: [{ uid: 'No se a encontrado ningún curso' }] });
   return res.status(200).send(course);
 };
 

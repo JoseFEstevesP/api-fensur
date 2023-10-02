@@ -14,7 +14,7 @@ const teacherUpdateController = async (req, res) => {
   if (!validateTeacher)
     return res
       .status(409)
-      .send({ errors: ['EL usuario no posee el rol de profesor'] });
+      .send({ errors: [{ uid: 'EL usuario no posee el rol de profesor' }] });
   if (!existingTeacherById)
     return res
       .status(404)

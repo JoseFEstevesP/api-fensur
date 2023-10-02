@@ -14,7 +14,7 @@ const studentUpdateController = async (req, res) => {
   if (!validateStudent)
     return res
       .status(409)
-      .send({ errors: ['EL usuario no posee el rol de estudiante'] });
+      .send({ errors: [{ uid: 'EL usuario no posee el rol de estudiante' }] });
   if (!existingStudentById)
     return res
       .status(404)
