@@ -6,4 +6,5 @@ export const permissions = {
   delete: 'DELETE',
   teacher: 'TEACHER',
   student: 'STUDENT',
+  super: 'SUPER',
 };
