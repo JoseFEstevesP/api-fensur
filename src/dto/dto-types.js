@@ -71,3 +71,8 @@ export const permissionsDTOSchemas = Type.String({
     type: 'El tipo nota no es valido, debe de ser una cadena de texto',
   },
 });
+export const ratingDTOSchemas = Type.String({
+  errorMessage: {
+    type: 'El tipo nota no es valido, debe de ser una cadena de texto',
+  },
+});

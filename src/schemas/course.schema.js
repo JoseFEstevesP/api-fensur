@@ -1,5 +1,6 @@
 import { sequelize } from '#Config/db.js';
 import { DataTypes } from 'sequelize';
+import { Note } from './note.schema.js';
 import { Student } from './student.schema.js';
 import { Teacher } from './teacher.schema.js';
 
@@ -43,6 +44,14 @@ Course.hasMany(Student, {
   sourceKey: 'uid',
 });
 Student.belongsTo(Course, {
+  foreignKey: 'uidCourse',
+  targetId: 'uid',
+});
+Course.hasMany(Note, {
+  foreignKey: 'uidCourse',
+  sourceKey: 'uid',
+});
+Note.belongsTo(Course, {
   foreignKey: 'uidCourse',
   targetId: 'uid',
 });
