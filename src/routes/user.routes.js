@@ -1,5 +1,6 @@
 import userDeleteController from '#Controllers/user-delete.controller.js';
 import userLoginController from '#Controllers/user-login.controller.js';
+import userNoteController from '#Controllers/user-note.controller.js';
 import userProfileController from '#Controllers/user-profile.controller.js';
 import userReadController from '#Controllers/user-read.controller.js';
 import userRegisterController from '#Controllers/user-register.controller.js';
@@ -20,6 +21,7 @@ import createPermissions from '#Middleware/rol-create.middleware.js';
 import deletePermissions from '#Middleware/rol-delete.middleware.js';
 import profilePermissions from '#Middleware/rol-profile.middleware.js';
 import readPermissions from '#Middleware/rol-read.middleware.js';
+import studentPermissions from '#Middleware/rol-student.middleware.js';
 import userJWTDTO from '#Middleware/user-jwt.middleware.js';
 import { Router } from 'express';
 const userRoutes = Router();
@@ -43,6 +45,13 @@ userRoutes.get(
   userJWTDTO,
   readPermissions,
   userSearchItemController
+);
+userRoutes.get(
+  '/note',
+  userJWTDTO,
+  readPermissions,
+  studentPermissions,
+  userNoteController
 );
 userRoutes.get('/search', userJWTDTO, readPermissions, userSearchController);
 userRoutes.patch(
