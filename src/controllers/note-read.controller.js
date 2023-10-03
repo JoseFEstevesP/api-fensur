@@ -28,19 +28,19 @@ const noteReadController = async (req, res) => {
     limit,
     page,
   });
-  const noteWithDetails = await Promise.all(rows.map(getNoteData));
+  const details = await Promise.all(rows.map(getNoteData));
   const pages = Math.ceil(count / limit);
   const totalPage = page > pages ? pages : page;
   const nextPage = Number(totalPage) + 1;
   const previousPage = Number(totalPage) - 1;
   return res.status(200).send({
-    noteWithDetails,
-    count,
+		count,
     currentPage: Number(totalPage),
     nextPage: nextPage <= pages ? nextPage : null,
     previousPage: previousPage > 0 ? previousPage : null,
     limit: Number(limit),
     pages,
+		details,
   });
 };
 

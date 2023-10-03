@@ -19,7 +19,7 @@ const studentReadController = async (req, res) => {
     limit,
     page,
   });
-  const studentWithDetails = await Promise.all(rows.map(getStudentData));
+  const details = await Promise.all(rows.map(getStudentData));
   const pages = Math.ceil(count / limit);
   const totalPage = page > pages ? pages : page;
   const nextPage = Number(totalPage) + 1;
@@ -31,7 +31,7 @@ const studentReadController = async (req, res) => {
     previousPage: previousPage > 0 ? previousPage : null,
     limit: Number(limit),
     pages,
-    studentWithDetails,
+    details,
   });
 };
 

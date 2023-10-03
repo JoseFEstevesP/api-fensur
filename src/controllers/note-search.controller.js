@@ -34,7 +34,7 @@ const noteSearchController = async (req, res) => {
     return res
       .status(404)
       .send({ errors: [{ uid: 'No se a encontrado ningúna nota' }] });
-  const noteWithDetails = await Promise.all(rows.map(getNoteData));
+  const details = await Promise.all(rows.map(getNoteData));
   const pages = Math.ceil(count / limit);
   const totalPage = page > pages ? pages : page;
   const nextPage = Number(totalPage) + 1;
@@ -46,7 +46,7 @@ const noteSearchController = async (req, res) => {
     previousPage: previousPage > 0 ? previousPage : null,
     limit: Number(limit),
     pages,
-    noteWithDetails,
+    details,
   });
 };
 
