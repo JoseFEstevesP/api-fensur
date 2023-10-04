@@ -4,6 +4,7 @@ import userNoteController from '#Controllers/user-note.controller.js';
 import userProfileController from '#Controllers/user-profile.controller.js';
 import userReadController from '#Controllers/user-read.controller.js';
 import userRegisterController from '#Controllers/user-register.controller.js';
+import userRolController from '#Controllers/user-rol.controller.js';
 import userSearchController from '#Controllers/user-search.controller.js';
 import userSearchItemController from '#Controllers/user-searchItem.controller.js';
 import userUnregisterController from '#Controllers/user-unregister.controller.js';
@@ -39,6 +40,7 @@ userRoutes.get(
   profilePermissions,
   userProfileController
 );
+userRoutes.get('/rol', userJWTDTO, userRolController);
 userRoutes.get('/list', userJWTDTO, readPermissions, userReadController);
 userRoutes.get(
   '/item/:uid',
